@@ -26,11 +26,12 @@
 
 <body>
     <header>
+        <!-- Navbar Section -->
         <nav class="bg-[#167F40] shadow-sm">
             <div class="navbar text-white w-11/12 mx-auto">
                 <div class="navbar-start">
                     <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -46,7 +47,7 @@
                     </div>
                     <a class="font-semibold text-xl">Green Earth</a>
                 </div>
-                <div class="navbar-center hidden lg:flex">
+                <div class="navbar-center hidden md:flex">
                     <ul class="menu menu-horizontal px-1">
                         <li><a href="">About</a></li>
                         <li><a href="">Gallery</a></li>
@@ -58,6 +59,20 @@
                 </div>
             </div>
         </nav>
+        <!-- Banner Section -->
+        <section class="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 bg-[#CFF0DC] md:pt-10 lg:pt-0">
+            <div class="w-[60%] mx-auto flex-1">
+                <img src="./assets/hero-leaf1.png" alt="">
+            </div>
+            <div class="space-y-4 text-center flex-1">
+                <h2 class="text-3xl lg:text-5xl font-bold">Plant a Tree, Grow a Future</h2>
+                <p class="text-sm lg:text-base">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
+                <button class="btn bg-[#FCC935] rounded-[30px] font-bold border-none shadow-none text-[#167F40]">Get Involved</button>
+            </div>
+            <div class="w-[60%] mx-auto flex-1">
+                <img src="./assets/hero-leaf2.png" alt="">
+            </div>
+        </section>
     </header>
     <main>
 
