@@ -5,15 +5,15 @@ const loadCategoriesTree = async() => {
     const json = await res.json();
     displayCategoriesTree(json.categories);
 }
-loadCategoriesTree();
+// loadCategoriesTree();
     // Show Categories
 const displayCategoriesTree = (categories) => {
     const categoriesContainer = document.getElementById('categories-container');
     categories.forEach((category) => {
         const div = document.createElement('div');
-        div.classList.add('text-center')
+        div.classList.add('text-center');
         div.innerHTML = `
-        <button onclick="loadSelectedPlants(${category.id})" class="hover:bg-[#15803D] hover:text-white px-3 py-2 w-full md:text-left cursor-pointer rounded-xl text-center">
+        <button id="activeBtn-${category.id}" onclick="loadSelectedPlants(${category.id})" class="hover:bg-[#40a164] hover:text-white md:px-3 md:py-2 px-8 py-3 w-fit md:w-full md:text-left cursor-pointer rounded-xl text-center category-btn">
         ${category.category_name}
         </button>
     `
@@ -25,12 +25,13 @@ const displayCategoriesTree = (categories) => {
 
 // All Plants Data in Middle Containers----------------------------------------
 const loadAllPlantsDefault = async() => {
+    loadingSpinner(true);
     const url = 'https://openapi.programming-hero.com/api/plants';
     const res = await fetch(url);
     const json = await res.json();
     showAllPlantsDefault(json.plants);
 }
-loadAllPlantsDefault();
+// loadAllPlantsDefault();
     // Show All Plants
 const showAllPlantsDefault = (plants) => {
     const allPlantsContainer = document.getElementById('all-plants-container');
@@ -49,6 +50,7 @@ const showAllPlantsDefault = (plants) => {
                         </div>
         `
         allPlantsContainer.appendChild(div);
+        loadingSpinner(false);
     })
 }
 
@@ -56,13 +58,22 @@ const showAllPlantsDefault = (plants) => {
 
 // Plants show by Categories--------------------------------------------------------
 const loadSelectedPlants = async(id) => {
+    loadingSpinner(true);
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
     const res = await fetch(url);
     const json = await res.json();
+    // Remove Active Button before select category
+    removeActiveBtn();
+
+    // Show Active Button
+    const showActiveBtn = document.getElementById(`activeBtn-${id}`);
+    showActiveBtn.classList.add("bg-[#15803D]","text-white");
+
     showSelectedPlantsByCategory(json.plants);
 }
     // Show Plants by categories
 const showSelectedPlantsByCategory = (plants) => {
+    loadingSpinner(true)
     const allPlantsContainer = document.getElementById('all-plants-container');
     allPlantsContainer.innerHTML = "";
     plants.forEach(plant => {
@@ -80,6 +91,7 @@ const showSelectedPlantsByCategory = (plants) => {
                         </div>
         `
         allPlantsContainer.appendChild(div);
+        loadingSpinner(false);
     })
 }
 
@@ -158,3 +170,24 @@ const removeCart = (price, id) => {
 
 
 // Loading Spinner--------------------------------------------------------------------
+const loadingSpinner = (status) => {
+    if(status === true) {
+        document.getElementById('spinner').classList.remove('hidden');
+        document.getElementById('hide-when-loading').classList.add('hidden');
+    }
+    else{
+        document.getElementById('spinner').classList.add('hidden');
+        document.getElementById('hide-when-loading').classList.remove('hidden');
+    }
+}
+
+// Remove Active Button---------------------------------------------------------------
+const removeActiveBtn = () => {
+    const categoryBtn = document.querySelectorAll('.category-btn');
+    categoryBtn.forEach(btn => {
+        btn.classList.remove("bg-[#15803D]","text-white");
+    })
+}
+
+loadCategoriesTree();
+loadAllPlantsDefault();

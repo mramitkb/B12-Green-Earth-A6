@@ -78,11 +78,11 @@
         <!-- Trees and Campaign Container -->
         <div class="bg-[#F0FDF4]">
             <section class="w-11/12 mx-auto pt-24">
-                <h1 id="hide-title" class="text-3xl font-semibold text-center">Choose Your Trees</h1>
+                <h1 class="text-3xl font-semibold text-center">Choose Your Trees</h1>
                 <!-- Loading Spinner -->
-                    <div id="spinner" class="flex items-center justify-center py-5 hidden">
+                    <!-- <div id="spinner" class="hidden flex items-center justify-center my-10">
                         <span class="loading loading-dots loading-xl"></span>
-                    </div>
+                    </div> -->
                 <!-- Choose Your Trees Section with ES6 -->
                 <section class="grid grid-cols-12 gap-5 mt-10">
                     <!-- Left side -->
@@ -95,7 +95,15 @@
                         </div>
                     </aside>
                     <!-- Middle -->
-                    <div id="all-plants-container" class="col-span-full md:col-span-6 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="col-span-full md:col-span-6 lg:col-span-8">
+                        <div id="hide-when-loading">
+                            <div id="all-plants-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+                        </div>
+                        <!-- Loading Spinner -->
+                        <div id="spinner" class="hidden flex items-start justify-center min-h-80">
+                            <span class="loading loading-dots loading-xl"></span>
+                        </div>
+
                         <!-- Demo Cart -->
                         <!-- <div class="p-4 bg-white rounded-lg space-y-3 flex items-center justify-between flex-col w-full">
                             <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
