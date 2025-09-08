@@ -5,7 +5,7 @@ const loadCategoriesTree = async() => {
     const json = await res.json();
     displayCategoriesTree(json.categories);
 }
-// loadCategoriesTree();
+
     // Show Categories
 const displayCategoriesTree = (categories) => {
     const categoriesContainer = document.getElementById('categories-container');
@@ -31,7 +31,7 @@ const loadAllPlantsDefault = async() => {
     const json = await res.json();
     showAllPlantsDefault(json.plants);
 }
-// loadAllPlantsDefault();
+
     // Show All Plants
 const showAllPlantsDefault = (plants) => {
     const allPlantsContainer = document.getElementById('all-plants-container');
@@ -71,6 +71,7 @@ const loadSelectedPlants = async(id) => {
 
     showSelectedPlantsByCategory(json.plants);
 }
+
     // Show Plants by categories
 const showSelectedPlantsByCategory = (plants) => {
     loadingSpinner(true)
@@ -104,6 +105,7 @@ const openModalByName = async(id) => {
     const json = await res.json();
     showModalForCard(json.plants)
 }
+
     // Show Modal
 const showModalForCard = (plant) => {
     const modalContainer = document.getElementById('modal-details');
@@ -128,6 +130,7 @@ const addToCartBtn = async(id) => {
     const json = await res.json();
     showOnCart(json.plants)
 }
+
 // Show on Cart
 const showOnCart = (plant) => {
     alert(`${plant.name} has been added to the cart.`);
@@ -151,6 +154,8 @@ const showOnCart = (plant) => {
     // Update total amount
     document.getElementById('total-amount').innerText = totalAmount + plantPrice;
 }
+
+
 
 // Remove Cart-----------------------------------------------------------------------
 const removeCart = (price, id) => {
@@ -181,6 +186,8 @@ const loadingSpinner = (status) => {
     }
 }
 
+
+
 // Remove Active Button---------------------------------------------------------------
 const removeActiveBtn = () => {
     const categoryBtn = document.querySelectorAll('.category-btn');
@@ -188,6 +195,8 @@ const removeActiveBtn = () => {
         btn.classList.remove("bg-[#15803D]","text-white");
     })
 }
+
+
 
 loadCategoriesTree();
 loadAllPlantsDefault();
