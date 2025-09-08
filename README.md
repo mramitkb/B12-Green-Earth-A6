@@ -16,7 +16,7 @@
 
 `const` = Block Scope, Hoisted(in Temporal Dead Zone), Can't Redeclare/Reassign.
 
-
+<hr>
 
 ### 2nd Answer:
 
@@ -26,7 +26,7 @@
 
 `filter()` = filter() will loop through every values/elements in an array and apply condition for every values/elements which I have given to the function. Then, returned matched values/elements in a new array. <br>
 
-
+<hr>
 
 ### 3rd Answer:
 
@@ -38,7 +38,7 @@
 const arrowFunc = () => 3 + 6 + 9;
 ```
 
-
+<hr>
 
 ### 4th Answer:
 `Destructuring`: Destructuring comes in ES6 and it's very useful for [], {}, () = array, object & function values destructuring.
@@ -56,6 +56,7 @@ const person = {
 const {name, age, isMarried} = person; // object Destructuring
 ```
 
+<hr>
 
 ### 5th Answer:
 `String Concatenation`: We have to use multiple symbols (+, "") etc to show element in a line. It's looking like a messy code. <br>
@@ -69,3 +70,4 @@ const name = "Jack";
 const age = 30;
 const withString = name + " is " + age + " years old."; // String Concatenation
 const withBacktick = `${name} is ${age} years old.`
+```
