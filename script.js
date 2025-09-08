@@ -38,7 +38,7 @@ const showAllPlantsDefault = (plants) => {
     plants.map(plant => {
         const div = document.createElement('div');
         div.innerHTML = `
-                        <div class="p-4 bg-white rounded-lg space-y-3 flex items-center justify-between flex-col w-full">
+                        <div class="p-4 bg-white rounded-lg space-y-5 flex items-center justify-between flex-col w-full">
                             <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
                             <h2 onclick="openModalByName(${plant.id})" class="font-semibold text-left w-full">${plant.name}</h2>
                             <p class="text-[#4C545F] text-sm text-justify">${plant.description}</p>
@@ -80,7 +80,7 @@ const showSelectedPlantsByCategory = (plants) => {
     plants.forEach(plant => {
         const div = document.createElement('div');
         div.innerHTML = `
-                        <div class="p-4 bg-white rounded-lg space-y-3 flex items-center justify-between flex-col w-full">
+                        <div class="p-4 bg-white rounded-lg space-y-5 flex items-center justify-between flex-col w-full">
                             <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
                             <h2 onclick="openModalByName(${plant.id})" class="font-semibold text-left w-full">${plant.name}</h2>
                             <p class="text-[#4C545F] text-sm text-justify">${plant.description}</p>
