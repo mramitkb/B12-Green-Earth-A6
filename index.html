@@ -78,7 +78,11 @@
         <!-- Trees and Campaign Container -->
         <div class="bg-[#F0FDF4]">
             <section class="w-11/12 mx-auto pt-24">
-                <h1 class="text-3xl font-semibold text-center">Choose Your Trees</h1>
+                <h1 id="hide-title" class="text-3xl font-semibold text-center">Choose Your Trees</h1>
+                <!-- Loading Spinner -->
+                    <div id="spinner" class="flex items-center justify-center py-5 hidden">
+                        <span class="loading loading-dots loading-xl"></span>
+                    </div>
                 <!-- Choose Your Trees Section with ES6 -->
                 <section class="grid grid-cols-12 gap-5 mt-10">
                     <!-- Left side -->
@@ -131,20 +135,20 @@
                         <!-- Cart added -->
                         <div id="cart-added-container" class="mt-4 space-y-3">
                             <!-- cart added demo -->
-                            <div class="flex items-center justify-between bg-[#F0FDF4] px-3 py-2 rounded-lg">
+                            <!-- <div class="flex items-center justify-between bg-[#F0FDF4] px-3 py-2 rounded-lg">
                                 <div class="space-y-2">
                                     <h3 class="font-semibold">Mango Tree</h3>
                                     <p class="text-[#879395]">৳500 x 1</p>
                                 </div>
                                 <i class="fa-solid fa-xmark"></i>
-                            </div>
+                            </div> -->
                         </div>
                         <hr class="my-3 bg-[#1F2937] opacity-[0.1]">
                         <!-- Total Amount -->
-                        <div id="total-amount-container" class="">
+                        <div class="">
                             <div class="flex items-center justify-between font-medium">
                                 <p>Total:</p>
-                                <p>৳<span>1000</span></p>
+                                <p>৳<span id="total-amount">0</span></p>
                             </div>
                         </div>
                     </aside>
