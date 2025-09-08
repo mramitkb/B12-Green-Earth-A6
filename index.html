@@ -104,6 +104,27 @@
                             <button class="bg-[#15803D] text-white rounded-3xl w-full px-3 py-2 lg:px-5 lg:py-3 cursor-pointer font-medium">Add to Cart</button>
                         </div> -->
                     </div>
+                    <!-- Modal for Card -->
+                    <dialog id="modal_container" class="modal modal-bottom sm:modal-middle">
+                        <div class="modal-box">
+                            <div id="modal-details">
+                                <!-- Modal Details -->
+                                <!-- <div class="space-y-3">
+                                    <h2 class="font-semibold">${plant.name}</h2>
+                                    <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
+                                    <p><span class="font-semibold">Category:</span> ${plant.category}</p>
+                                    <p><span class="font-semibold">Price:</span> ৳${plant.price}</p>
+                                    <p><span class="font-semibold">Description: </span><span class="text-[#4C545F] text-sm text-justify">${plant.description}</span>
+                                </div> -->
+                            </div>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                     <!-- Right side -->
                     <aside class="col-span-full md:col-span-3 lg:col-span-2 bg-white rounded-2xl p-4">
                         <h1 class="text-xl font-semibold">Your Cart</h1>

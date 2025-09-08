@@ -39,7 +39,7 @@ const showAllPlantsDefault = (plants) => {
         div.innerHTML = `
                         <div class="p-4 bg-white rounded-lg space-y-3 flex items-center justify-between flex-col w-full">
                             <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
-                            <h2 class="font-semibold text-left w-full">${plant.name}</h2>
+                            <h2 onclick="openModalByName(${plant.id})" class="font-semibold text-left w-full">${plant.name}</h2>
                             <p class="text-[#4C545F] text-sm text-justify">${plant.description}</p>
                             <div class="flex items-center justify-between w-full text-sm md:text-base">
                                 <button class="text-[#15803D] bg-[#DCFCE7] rounded-3xl px-4 py-1 font-medium cursor-pointer">${plant.category}</button>
@@ -70,7 +70,7 @@ const showSelectedPlantsByCategory = (plants) => {
         div.innerHTML = `
                         <div class="p-4 bg-white rounded-lg space-y-3 flex items-center justify-between flex-col w-full">
                             <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
-                            <h2 class="font-semibold text-left w-full">${plant.name}</h2>
+                            <h2 onclick="openModalByName(${plant.id})" class="font-semibold text-left w-full">${plant.name}</h2>
                             <p class="text-[#4C545F] text-sm text-justify">${plant.description}</p>
                             <div class="flex items-center justify-between w-full text-sm md:text-base">
                                 <button class="text-[#15803D] bg-[#DCFCE7] rounded-3xl px-4 py-1 font-medium cursor-pointer">${plant.category}</button>
@@ -81,4 +81,28 @@ const showSelectedPlantsByCategory = (plants) => {
         `
         allPlantsContainer.appendChild(div);
     })
+}
+
+
+
+// Open Modal for Each Card--------------------------------------------------------
+const openModalByName = async(id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    showModalForCard(json.plants)
+}
+    // Show Modal
+const showModalForCard = (plant) => {
+    const modalContainer = document.getElementById('modal-details');
+    modalContainer.innerHTML =`
+                            <div class="space-y-3">
+                                <h2 class="font-semibold">${plant.name}</h2>
+                                <img class="bg-cover rounded-lg w-full h-52 object-cover" src="${plant.image}" alt="">
+                                <p><span class="font-semibold">Category:</span> ${plant.category}</p>
+                                <p><span class="font-semibold">Price:</span> ৳${plant.price}</p>
+                                <p><span class="font-semibold">Description: </span><span class="text-[#4C545F] text-sm text-justify">${plant.description}</span>
+                            </div>
+    `
+    document.getElementById('modal_container').showModal();
 }
