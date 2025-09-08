@@ -13,13 +13,14 @@ const displayCategoriesTree = (categories) => {
         const div = document.createElement('div');
         div.classList.add('text-center')
         div.innerHTML = `
-        <button class="hover:bg-[#15803D] hover:text-white px-3 py-2 w-full md:text-left cursor-pointer rounded-xl text-center">
+        <button onclick="loadSelectedPlants(${category.id})" class="hover:bg-[#15803D] hover:text-white px-3 py-2 w-full md:text-left cursor-pointer rounded-xl text-center">
         ${category.category_name}
         </button>
     `
     categoriesContainer.appendChild(div);
     })
 }
+
 
 
 // All Plants Data in Middle Containers----------------------------------------
@@ -49,4 +50,18 @@ const showAllPlantsDefault = (plants) => {
         `
         allPlantsContainer.appendChild(div);
     })
+}
+
+
+
+// Plants show by Categories--------------------------------------------------------
+const loadSelectedPlants = async(id) => {
+    const url = `https://openapi.programming-hero.com/api/category/${id}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    showSelectedPlantsByCategory(json.plants);
+}
+    // Show Plants by categories
+const showSelectedPlantsByCategory = (plants) => {
+    
 }
